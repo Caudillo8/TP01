@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selección Argentina - Fichas de Jugadores</title>
+    <style>
+        /* Estilos Generales */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f2f5;
+            padding: 20px;
+            margin: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #0077b6;
+            /* Azul de Argentina */
+            margin-bottom: 30px;
+        }
+
+        /* Contenedor de las Tarjetas */
+        #cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Estilo de la Tarjeta */
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            width: 300px;
+            min-height: 180px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 8px solid #0077b6;
+            /* Línea superior azul */
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .card-header h2 {
+            margin: 0;
+            font-size: 1.6em;
+            color: #333;
+            line-height: 1.2;
+        }
+
+        .dorsal {
+            font-size: 2.5em;
+            font-weight: 900;
+            color: #ffc300;
+            /* Dorado/Amarillo */
+            text-shadow: 2px 2px #0077b6;
+            line-height: 1;
+        }
+
+        /* Información Adicional */
+        .card p {
+            margin: 8px 0;
+            font-size: 1em;
+            color: #555;
+        }
+
+        .card strong {
+            color: #000;
+        }
+
+        .club-info {
+            font-style: italic;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Jugadores de la Selección Argentina</h1>
+    <div id="cards-container">
+    </div>
+
+    <script>
+        // 1. Datos JSON (simulando la respuesta de la API)
+        const datos = {
+            "seleccion_argentina": [
+                { "nombre": "Lionel", "apellido": "Messi", "posicion": "Delantero", "dorsal": 10, "club": "Inter Miami (EE.UU.)" },
+                { "nombre": "Emiliano", "apellido": "Martínez", "posicion": "Arquero", "dorsal": 23, "club": "Aston Villa (Inglaterra)" },
+                { "nombre": "Julián", "apellido": "Álvarez", "posicion": "Delantero", "dorsal": 9, "club": "Manchester City (Inglaterra)" },
+                { "nombre": "Enzo", "apellido": "Fernández", "posicion": "Mediocampista", "dorsal": 24, "club": "Chelsea (Inglaterra)" },
+                { "nombre": "Cristian", "apellido": "Romero", "posicion": "Defensor", "dorsal": 13, "club": "Tottenham Hotspur (Inglaterra)" }
+            ]
+        };
+
+        // 2. Función para renderizar las tarjetas
+        const renderCards = () => {
+            const container = document.getElementById('cards-container');
+            let htmlContent = '';
+
+            // Iterar sobre cada jugador en el array
+            datos.seleccion_argentina.forEach(player => {
+                // Usar un template literal para crear la estructura HTML de la tarjeta
+                const cardHTML = `
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>${player.nombre} ${player.apellido}</h2>
+                            <span class="dorsal">${player.dorsal}</span>
+                        </div>
+                        <p><strong>Posición:</strong> ${player.posicion}</p>
+                        <p class="club-info"><strong>Club:</strong> ${player.club}</p>
+                    </div>
+                `;
+                htmlContent += cardHTML;
+            });
+
+            // Insertar todo el contenido generado en el contenedor
+            container.innerHTML = htmlContent;
+        };
+
+        // 3. Ejecutar la función al cargar el script
+        renderCards();
+
+        // NOTA: Si quisieras mantener la estructura original de 'fetching()'
+        // podrías simular la respuesta de la siguiente manera:
+        /*
+        const fetching = async () => {
+             // Simulación de la respuesta JSON
+             const datos = {
+                "seleccion_argentina": [
+                    { "nombre": "Lionel", "apellido": "Messi", "posicion": "Delantero", "dorsal": 10, "club": "Inter Miami (EE.UU.)" },
+                    // ... el resto de los jugadores
+                ]
+            };
+            
+            const container = document.getElementById('cards-container');
+            let htmlContent = '';
+
+            datos.seleccion_argentina.forEach(player => {
+                // ... (mismo código de template literal)
+            });
+
+            container.innerHTML = htmlContent;
+        }
+        fetching();
+        */
+    </script>
+</body>
+
+</html>

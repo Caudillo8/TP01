@@ -1,0 +1,39 @@
+{
+  "seleccion_argentina": [
+    {
+      "nombre": "Lionel",
+      "apellido": "Messi",
+      "posicion": "Delantero",
+      "dorsal": 10,
+      "club": "Inter Miami (EE.UU.)"
+    },
+    {
+      "nombre": "Emiliano",
+      "apellido": "Martínez",
+      "posicion": "Arquero",
+      "dorsal": 23,
+      "club": "Aston Villa (Inglaterra)"
+    },
+    {
+      "nombre": "Julián",
+      "apellido": "Álvarez",
+      "posicion": "Delantero",
+      "dorsal": 9,
+      "club": "Manchester City (Inglaterra)"
+    },
+    {
+      "nombre": "Enzo",
+      "apellido": "Fernández",
+      "posicion": "Mediocampista",
+      "dorsal": 24,
+      "club": "Chelsea (Inglaterra)"
+    },
+    {
+      "nombre": "Cristian",
+      "apellido": "Romero",
+      "posicion": "Defensor",
+      "dorsal": 13,
+      "club": "Tottenham Hotspur (Inglaterra)"
+    }
+  ]
+}
